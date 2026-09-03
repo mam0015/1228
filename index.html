@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#111827" />
+  <title>Shopify Project Estimator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">S</div>
+      <div>
+        <h1>Shopify Project Estimator</h1>
+        <p>Flexible checklist, time estimate and pricing calculator</p>
+      </div>
+    </div>
+    <button id="resetBtn" class="ghost-btn" type="button">Reset</button>
+  </header>
+
+  <main class="container">
+    <section class="panel controls-panel">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">PROJECT SETTINGS</span>
+          <h2>Estimate settings</h2>
+        </div>
+        <div class="mode-switch" aria-label="Estimate display mode">
+          <button class="mode-btn active" data-mode="full" type="button">Time + Price</button>
+          <button class="mode-btn" data-mode="time" type="button">Time Only</button>
+        </div>
+      </div>
+
+      <div class="settings-grid">
+        <label class="field price-field">
+          <span>Hourly rate (AUD)</span>
+          <div class="input-prefix">
+            <span>$</span>
+            <input id="hourlyRate" type="number" min="0" step="1" value="40" />
+          </div>
+        </label>
+
+        <label class="field">
+          <span>Complexity</span>
+          <select id="complexity">
+            <option value="0.9">Simple</option>
+            <option value="1" selected>Standard</option>
+            <option value="1.2">Detailed</option>
+            <option value="1.45">Complex</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Buffer</span>
+          <select id="buffer">
+            <option value="0">0%</option>
+            <option value="0.1" selected>10%</option>
+            <option value="0.2">20%</option>
+            <option value="0.3">30%</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Working hours / day</span>
+          <input id="hoursPerDay" type="number" min="1" max="16" step="0.5" value="7.5" />
+        </label>
+      </div>
+
+      <div class="preset-wrap">
+        <span class="preset-label">Quick presets</span>
+        <div class="preset-buttons">
+          <button type="button" class="preset-btn" data-preset="existing">Existing store + add info</button>
+          <button type="button" class="preset-btn" data-preset="setup">Set up store + content</button>
+          <button type="button" class="preset-btn" data-preset="update">Update existing store</button>
+          <button type="button" class="preset-btn" data-preset="scratch">Build from scratch</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="summary-grid">
+      <article class="summary-card">
+        <span>Selected tasks</span>
+        <strong id="selectedCount">0</strong>
+      </article>
+      <article class="summary-card">
+        <span>Estimated work</span>
+        <strong id="totalTime">0h</strong>
+        <small id="dayEstimate">0 working days</small>
+      </article>
+      <article class="summary-card price-card">
+        <span>Estimated price</span>
+        <strong id="totalPrice">$0</strong>
+        <small>AUD, before external Shopify/app costs</small>
+      </article>
+      <article class="summary-card">
+        <span>Range</span>
+        <strong id="timeRange">0–0h</strong>
+        <small id="priceRange" class="price-field">$0–$0</small>
+      </article>
+    </section>
+
+    <section class="panel checklist-panel">
+      <div class="section-heading checklist-title">
+        <div>
+          <span class="eyebrow">CHECKLIST</span>
+          <h2>Select what the job includes</h2>
+          <p>Tick a task to include it. Quantity and time-per-unit are editable, so the estimate can grow with the project instead of pretending every Shopify job is identical.</p>
+        </div>
+        <div class="checklist-actions">
+          <button id="selectAllBtn" class="ghost-btn small" type="button">Select all</button>
+          <button id="clearAllBtn" class="ghost-btn small" type="button">Clear</button>
+        </div>
+      </div>
+
+      <div id="taskGroups"></div>
+    </section>
+
+    <section class="panel final-panel">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">FINAL ESTIMATE</span>
+          <h2>Project total</h2>
+        </div>
+        <button id="copyBtn" class="primary-btn" type="button">Copy summary</button>
+      </div>
+
+      <div class="final-grid">
+        <div>
+          <span class="final-label">Estimated time</span>
+          <strong id="finalTime">0 hours</strong>
+          <p id="finalDays">Approximately 0 working days</p>
+        </div>
+        <div class="price-field">
+          <span class="final-label">Estimated project price</span>
+          <strong id="finalPrice">A$0</strong>
+          <p id="finalRateNote">Based on A$40/hour</p>
+        </div>
+      </div>
+
+      <div class="notes">
+        <strong>Estimate notes</strong>
+        <p id="estimateNote">The estimate includes the selected tasks, complexity setting and buffer. Shopify subscription fees, paid themes, paid apps, photography, custom development and third-party services are not included unless selected as a task.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite">Copied</div>
+  <script src="app.js"></script>
+</body>
+</html>
