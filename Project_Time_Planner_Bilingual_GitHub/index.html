@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project Time Planner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">P</div>
+      <div>
+        <h1 data-i18n="title">Project Time Planner</h1>
+        <p data-i18n="subtitle">Select the work and get an estimated completion time</p>
+      </div>
+    </div>
+    <button id="languageBtn" class="language-btn" type="button">فارسی</button>
+  </header>
+
+  <main class="container">
+    <section class="intro-card">
+      <span class="eyebrow" data-i18n="eyebrow">TIME ESTIMATE</span>
+      <h2 data-i18n="heading">What does the project include?</h2>
+      <p data-i18n="description">Select the items that apply to the project. The estimated time will update automatically.</p>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <div>
+          <h2 data-i18n="selectHeading">Select items</h2>
+          <p data-i18n="selectDescription">Choose only the tasks that need to be completed.</p>
+        </div>
+        <div class="actions">
+          <button id="selectAllBtn" class="ghost-btn" type="button" data-i18n="selectAll">Select all</button>
+          <button id="clearBtn" class="ghost-btn" type="button" data-i18n="clear">Clear</button>
+        </div>
+      </div>
+
+      <div id="taskGroups"></div>
+    </section>
+
+    <section class="result-card">
+      <div class="result-main">
+        <span data-i18n="finalLabel">FINAL ESTIMATED TIME</span>
+        <strong id="finalTime">0 hours</strong>
+        <p id="finalDays">Approximately 0 working days</p>
+      </div>
+      <div class="result-side">
+        <span data-i18n="selectedLabel">Selected items</span>
+        <strong id="selectedCount">0</strong>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
