@@ -1,16 +1,25 @@
-# Project Scope Planner v2
+# Project Time Planner
 
-This version separates time estimation and price estimation into two different pages.
+A simple bilingual project-time estimator for GitHub Pages.
 
-## Pages
-
-- `index.html` — Time Estimate only
-- `price.html` — Price Estimate only
-
-The time page is the primary page and contains no hourly-rate, complexity, buffer, preset, or price controls.
+## What it does
+- English / Persian language switch
+- Full RTL support for Persian
+- No pricing
+- No hourly rate
+- No Time + Price mode
+- No complexity or buffer settings
+- No project presets
+- Select project items only
+- Automatically calculates final estimated time
+- Saves selected items and language in the browser
 
 ## GitHub Pages
+Upload:
+- index.html
+- style.css
+- app.js
 
-Upload all files to the root of a GitHub repository and enable:
+Then enable GitHub Pages from:
 
 Settings → Pages → Deploy from a branch → main → /(root)
