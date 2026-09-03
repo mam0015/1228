@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project Price Estimator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">P</div>
+      <div>
+        <h1>Project Price Estimator</h1>
+        <p>Internal costing and quote support</p>
+      </div>
+    </div>
+    <nav class="nav">
+      <a class="nav-link" href="index.html">Time Estimate</a>
+      <a class="nav-link active" href="price.html">Price Estimate</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero-card price-hero">
+      <div>
+        <span class="eyebrow">PRICE ESTIMATE</span>
+        <h2>Project costing</h2>
+        <p>This page is separate from the time planner and is only used when a price estimate is needed.</p>
+      </div>
+      <div class="rate-box">
+        <label for="hourlyRate">Hourly rate (AUD)</label>
+        <div class="money-input">
+          <span>$</span>
+          <input id="hourlyRate" type="number" min="0" step="1" value="40" />
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">PROJECT SCOPE</span>
+          <h2>Select billable activities</h2>
+          <p>Select only the work included in the quote. Quantity and effort can be adjusted for each activity.</p>
+        </div>
+        <div class="actions">
+          <button id="selectAllBtn" class="ghost-btn" type="button">Select all</button>
+          <button id="clearBtn" class="ghost-btn" type="button">Clear</button>
+        </div>
+      </div>
+
+      <div id="taskGroups"></div>
+    </section>
+
+    <section class="panel summary-panel">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">SUMMARY</span>
+          <h2>Final price estimate</h2>
+        </div>
+        <button id="copyBtn" class="primary-btn" type="button">Copy price summary</button>
+      </div>
+
+      <div class="final-grid one">
+        <div>
+          <span>Estimated project price</span>
+          <strong id="finalPrice">A$0</strong>
+          <p id="priceRange">Recommended range: A$0–A$0</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast">Copied</div>
+  <script src="price.js"></script>
+</body>
+</html>
